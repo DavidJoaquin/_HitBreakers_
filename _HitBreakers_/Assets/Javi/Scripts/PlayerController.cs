@@ -16,11 +16,6 @@ public class PlayerController : MonoBehaviour {
     private Camera mainCamera;
     Vector3 apuntar;
 
-    public Habilidad pasiva;
-    public Dash habilidad1;
-    public Habilidad habilidad2;
-    public Habilidad habilidad3;
-
     public Vector3 posRaycast;
 
 
@@ -63,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButton("Habilidad1"))
         {
-            habilidad1.ejecuta(this.gameObject);
+          
         }
 
     }
