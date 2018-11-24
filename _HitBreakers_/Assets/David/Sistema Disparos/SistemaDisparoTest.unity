@@ -398,7 +398,7 @@ Prefab:
     - target: {fileID: 114110317268653244, guid: 1582297ee7841c14ab7904de5c8767a4,
         type: 2}
       propertyPath: bulletSpeed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114110317268653244, guid: 1582297ee7841c14ab7904de5c8767a4,
         type: 2}
@@ -408,7 +408,12 @@ Prefab:
     - target: {fileID: 114110317268653244, guid: 1582297ee7841c14ab7904de5c8767a4,
         type: 2}
       propertyPath: tiempoVidaBala
-      value: 2
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110317268653244, guid: 1582297ee7841c14ab7904de5c8767a4,
+        type: 2}
+      propertyPath: dmgBala
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1582297ee7841c14ab7904de5c8767a4, type: 2}
@@ -502,9 +507,10 @@ GameObject:
   - component: {fileID: 1314696110}
   - component: {fileID: 1314696109}
   - component: {fileID: 1314696108}
+  - component: {fileID: 1314696113}
   m_Layer: 0
   m_Name: Malo
-  m_TagString: Enemigo
+  m_TagString: RecibeDmg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,6 +598,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1314696113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314696107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c051f81d4de2cf44a8c663d34d7b10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
 --- !u!1001 &1710571094
 Prefab:
   m_ObjectHideFlags: 0
