@@ -14,9 +14,17 @@ public class PlayerController : MonoBehaviour {
     private Vector3 velocidadMovimiento;
     //la cámara que usaremos para apuntar
     private Camera mainCamera;
+    Vector3 apuntar;
 
-	// Use this for initialization
-	void Start () {
+    public Habilidad pasiva;
+    public Dash habilidad1;
+    public Habilidad habilidad2;
+    public Habilidad habilidad3;
+    
+
+
+    // Use this for initialization
+    void Start () {
         //asignamos el player al Rigidbody que hemos definido (solo hay uno por ahora, habrá que ver como lo hacemos luego con los items)
         player = GetComponent<Rigidbody>();
         //lo mismo con la cámara, tendremos que usar tags o algo luego para definir la que queremos
@@ -36,10 +44,10 @@ public class PlayerController : MonoBehaviour {
         //creamos un parámetro para la longitud que tendrá el raycast desde la cámara al suelo
         float longitudPuntero;
 
-        // Si hay puntero disponible, es decir, que apunta dentro del suelo
+         // Si hay puntero disponible, es decir, que apunta dentro del suelo
         if (superficie.Raycast(punteroCamara, out longitudPuntero)) {
             // creamos un vector3 que coge la posición del puntero
-            Vector3 apuntar = punteroCamara.GetPoint(longitudPuntero);
+            apuntar = punteroCamara.GetPoint(longitudPuntero);
             // con esto hacemos que el puntero sea visible en el modo debug, para controlar que funciona bien
             Debug.DrawLine(punteroCamara.origin, apuntar, Color.blue);
             // aquí hacemos que el player mire hacía el puntero, pero al forzar el eje y a la posicion del jugador, mirará siempre
@@ -47,12 +55,19 @@ public class PlayerController : MonoBehaviour {
             transform.LookAt(new Vector3(apuntar.x, transform.position.y, apuntar.z));
         }
 
+        if (Input.GetButton("Habilidad1"))
+        {
+            habilidad1.ejecuta(this.gameObject);
+        }
 
-	}
+    }
     private void FixedUpdate()
     {
         //le decimos que la velocidad del player actualize su posición
         player.velocity = velocidadMovimiento;
+    }
+    public Vector3 getApuntar() {
+        return apuntar;
     }
 
 }
