@@ -6,9 +6,16 @@ public class HealthManager : MonoBehaviour {
 
     public int maxHealth;
     private int currentHealth;
+    public GameObject corazon1;
+    public GameObject corazon2;
+    public GameObject corazon3;
 
-	// Use this for initialization
-	void Start () {
+    public CorazonCaido corazonCaid;
+    public Transform spawnCorazon;
+
+
+    // Use this for initialization
+    void Start () {
 
         currentHealth = maxHealth;
 		
@@ -28,6 +35,45 @@ public class HealthManager : MonoBehaviour {
     public void RecibirDmg (int damage)
     {
         currentHealth -= damage;
+
+        CorazonCaido newCorazon = Instantiate(corazonCaid, spawnCorazon.position, spawnCorazon.rotation) as CorazonCaido;
+        newCorazon.miDueño = this.gameObject;
+
+        switch (currentHealth)
+        {
+            case 3:
+                break;
+            case 2:
+                corazon3.SetActive(false);
+                break;
+            case 1:
+                corazon2.SetActive(false);
+                break;
+            case 0:
+                corazon1.SetActive(false);
+                break;
+
+        }
+
+    }
+
+    public void RecuperarCorazon()
+    {
+        currentHealth += 1;
+
+        switch (currentHealth)
+        {
+            case 3:
+                corazon3.SetActive(true);
+                break;
+            case 2:
+                corazon2.SetActive(true);
+                break;
+            case 1:
+                corazon1.SetActive(true);
+                break;
+
+        }
     }
 
 }
