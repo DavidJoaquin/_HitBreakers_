@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
 
     public Vector3 posRaycast;
 
-    
 
 
     // Use this for initialization
