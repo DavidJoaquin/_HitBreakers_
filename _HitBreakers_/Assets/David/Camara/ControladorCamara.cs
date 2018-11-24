@@ -6,7 +6,7 @@ public class ControladorCamara : MonoBehaviour {
 
     public Transform player;
     Vector3 target, mousePos, refVel, shakeOffset;
-    float cameraDist = 6f;
+    float cameraDist = 16f;
     float smoothTime = 0.2f, yStart;
     //shake
     float shakeMag, shakeTimeEnd;
