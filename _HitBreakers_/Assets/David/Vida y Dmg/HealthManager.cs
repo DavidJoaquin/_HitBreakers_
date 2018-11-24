@@ -35,6 +35,7 @@ public class HealthManager : MonoBehaviour {
     public void RecibirDmg (int damage)
     {
         currentHealth -= damage;
+        Debug.Log(currentHealth);
 
         CorazonCaido newCorazon = Instantiate(corazonCaid, spawnCorazon.position, spawnCorazon.rotation) as CorazonCaido;
         newCorazon.miDueño = this.gameObject;
