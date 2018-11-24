@@ -5,16 +5,20 @@ using UnityEngine;
 public class CamaraFijarRotacion : MonoBehaviour {
 
     public Transform player;
+    public GameObject playerContr;
+
 
 	// Use this for initialization
 	void Start () {
+
+
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
-        transform.position = player.position + new Vector3(2,10,0);
+        transform.position = player.position + new Vector3(0,25,0);
 
     }
 }

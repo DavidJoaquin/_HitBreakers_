@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
     public Dash habilidad1;
     public Habilidad habilidad2;
     public Habilidad habilidad3;
+
+    public Vector3 posRaycast;
+
     
 
 
@@ -38,6 +41,8 @@ public class PlayerController : MonoBehaviour {
         //definimos que se mueva en esa dirección con la velocidad base
         velocidadMovimiento = inputMovimiento * velocidad;
         //creamos un puntero que sale de la camará hacia la posición del ratón
+
+
         Ray punteroCamara = mainCamera.ScreenPointToRay(Input.mousePosition);
         //recogemos donde está la superficie, habrá que actualizarlo luego?
         Plane superficie = new Plane(Vector3.up, Vector3.zero);
@@ -52,7 +57,9 @@ public class PlayerController : MonoBehaviour {
             Debug.DrawLine(punteroCamara.origin, apuntar, Color.blue);
             // aquí hacemos que el player mire hacía el puntero, pero al forzar el eje y a la posicion del jugador, mirará siempre
             //recto en esa dirección
-            transform.LookAt(new Vector3(apuntar.x, transform.position.y, apuntar.z));
+            posRaycast = new Vector3(apuntar.x, transform.position.y, apuntar.z);
+
+            transform.LookAt(posRaycast);
         }
 
         if (Input.GetButton("Habilidad1"))
