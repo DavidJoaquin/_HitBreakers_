@@ -16,6 +16,8 @@ public class GunController : MonoBehaviour {
     private float shotCounter;
     //Transform - El objeto de referencia para la posición donde se generan las balas
     public Transform firePoint;
+    public float tiempoVidaBala;
+    public int dmgBala;
 
 
 	// Update is called once per frame
@@ -48,6 +50,8 @@ public class GunController : MonoBehaviour {
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
                 //Asignamos la velocidad a la bala.
                 newBullet.speed = bulletSpeed;
+                newBullet.tiempoVida = tiempoVidaBala;
+                newBullet.dmgBala = dmgBala;
             }
         }
         else
